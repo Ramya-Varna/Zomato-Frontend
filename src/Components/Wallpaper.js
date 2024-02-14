@@ -1,122 +1,146 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { navigate, useNavigate } from "react-router-dom";
-
 import "../Styles/Wallpaper.css";
+import { useNavigate } from "react-router-dom";
 
-const Wallpaper = () => {
-    let navigation = useNavigate();
-    let [restaurants, setRestaurants] = useState([]);
-    const [inputText, setInputText] = useState("");
-    const [location, setLocation] = useState([]);
-    // let [handleLocation, setHandleLocation] = useState([]);
-    // let [handleSearch, setHandleSearch] = useState("");
-    let [suggestions, setSuggestions] = useState([]);
-
+function Wallpaper() {
+    const [locations, setLocations] = useState([]);
+    const [userInput, setUserInput] = useState("");
+    const [hotel, setHotel] = useState([]);
+    const [suggestion, setSuggestion] = useState([]);
+    const [selectedCity, setSelectedCity] = useState("");
+    const navigation = useNavigate();
+  
     useEffect(() => {
-        axios.get("https://outstanding-fish-pleat.cyclic.app/getLocation")
-            .then((res) => {
-                setRestaurants(res.data.Data);
-                console.log(res.data.Data);
-            })
-            .catch((err) => console.log(err));
-    
-        axios.get("https://outstanding-fish-pleat.cyclic.app/getRestaurantData")
-            .then((response) => {
-                setRestaurants(response.data.Data);
-                //console.log(restaurants)
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error);
-            });
+      const fetchData1 = async () => {
+        try {
+          const response = await axios.get("https://outstanding-fish-pleat.cyclic.app/getLocation");
+          const uniqueCities = response.data.reduce((acc, curr) => {
+            if (!acc.some((item) => item.name === curr.name)) {
+              acc.push(curr);
+            }
+            return acc;
+          }, []);
+          setLocations(uniqueCities);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+  
+      fetchData1();
     }, []);
-    
-    // ...
-    
-    const handleLocation = (event) => {
-        let locationid = event.target.value;
-        axios.get(`https://outstanding-fish-pleat.cyclic.app/getRestaurantBylocation_id/${locationid}`)
-            .then(response => {
-                setLocation(response.data);
-                console.log(location);
-                sessionStorage.setItem('location_id', locationid);
-            })
-            .catch((error) => {
-                console.error("Error fetching location data:", error);
-            });
-    };
+  
+    useEffect(() => {
+      const fetchData2 = async () => {
+        try {
+          const response = await axios.get("https://outstanding-fish-pleat.cyclic.app/getRestaurantData");
+          setHotel(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchData2();
+    }, []);
+  
     const handleSearch = (event) => {
-        let inputText = event.target.value;
-
-        var suggest = restaurants.filter(item => item.name.toLowerCase().includes(inputText.toLowerCase()));
-        setInputText(inputText);
-        setSuggestions(suggest);
-    }
-
-    const filteredsuggest = (obj) => {
-        navigation(`/detail?restaurant=${obj._id}`)
-    }
-
-    const showSuggestions = () => {
-
-        if (suggestions.length === 0 && inputText === undefined) {
-            return null;
-        }
-        if (suggestions.length > 0 && inputText ==='') {
-            return null;
-        }
-        if (suggestions.length === 0 && inputText) {
-            return <ul>
-                <li>No Search Results Found</li>
-            </ul>
-        }
-
-        return (
-            <ul className="unorder justify-content-center ">
-                {
-                    suggestions.map((e, i) => (<li className="list border rounded-2 p-3 fw-normal border border-3 text-center text-light bg-primary text-white justify-content-space-around " 
-                                    onClick={() => filteredsuggest(e)} key={e._id} >{`${e.name}-${e.locality},${e.city}`}</li>)
-
-                    )}
-            </ul>
+      const inputText = event.target.value;
+      setUserInput(inputText);
+  
+      let suggests;
+      if (selectedCity) {
+        suggests = hotel.filter(
+          (item) =>
+            item.name.toLowerCase().includes(inputText.toLowerCase()) &&
+            item.locality === selectedCity
         );
-    }
-
-    return (
-
+      } else {
+        suggests = hotel.filter((item) =>
+          item.name.toLowerCase().includes(inputText.toLowerCase())
+        );
+      }
+  
+      setSuggestion(suggests);
+    };
+  
+    const filterSuggest = (obj) => {
+        navigation(`/detail?restaurant=${obj._id}`);
+        console.log(obj);
+      };
+    
+      const handleCityChange = (event) => {
+        const selectedCityId = event.target.value;
+        setSelectedCity(selectedCityId);
+      };
+    
+      const showSuggestion = () => {
+        if (suggestion.length === 0 && userInput === undefined) {
+          return null;
+        }
+        if (suggestion.length > 0 && userInput === "") {
+          return null;
+        }
+        if (suggestion.length === 0 && userInput !== "") {
+          return (
+            <ul className="suggestions" style={{ height: "40px" }}>
+              <li>No Search Found</li>
+            </ul>
+          );
+        }
+        return (
+          <ul>
+            {suggestion.map((hotel) => (
+              <li
+                className="suggestions"
+                onClick={() => filterSuggest(hotel)}
+                key={hotel._id}
+              >
+                <h4 style={{ fontSize: "16px", fontWeight: "bold" }}>
+                  {hotel.name}
+                </h4>
+                <p style={{ fontSize: "14px", color: "gray" }}>
+                  {hotel.locality}, {hotel.city}
+                </p>
+              </li>
+            ))}
+          </ul>
+        );
+      };
+    
+      return (
         <div>
-            <div className='bgimg'>
-                <div className="d-flex flex-column text-center justify-content-end">
-                    {/* <div className="logo" style={{marginLeft:"45%"}}>e!</div> */}
-                    <div className="logo xs-12">POT 2 PLATE</div>
-                    <h1 className="find">Find the best restaurants cafes and bars</h1>
-                    <div className="px-2">
-                        <select className="locationDropdown" onChange={handleLocation}>
-                            <option>select city</option>
-                            {/* {restaurants.map((e, i) => {
-                                return <option key={i} value={e.location_id}>{`${e.city}-${e.locality}`}</option>
-                            })} */}
-                            {restaurants.map((e) => {
-                            return (
-                               
-                            <option key={e._id} value={e.location_id}>{`${e.city} - ${e.name}`}</option>
-                            // console.log(locationData);
-                            )
-                            
-                        })}
-
-                            {/* where e denotes location */}
-                        </select>
-                        <input type="search" className="border rounded-3 px-4 gap-2" onChange={handleSearch} placeholder="Search the restaurant" id="search" />
-                        {showSuggestions()}
-                        {/* {setShowSuggestions()} */}
-
-                    </div>
-                </div>
+          <div className="img83"></div>
+          <div className="top-section83">
+            <img src="./Assets/logo.png" alt="logo" className="logo83" />
+            <div className="heading83">
+              Find the best Restaurants, cafes, and bars
             </div>
+            <div className="option2">
+              <select
+                className="option83"
+                defaultValue=""
+                onChange={handleCityChange}
+              >
+                <option value="" disabled>
+                  Select the city
+                </option>
+                {locations.map((item) => (
+                  <option key={item._id} value={item.name}>
+                    {item.name}, {item.city}
+                  </option>
+                ))}
+              </select>
+    
+              <input
+                type="text"
+                placeholder="Search for Restaurants"
+                className="input83"
+                onChange={handleSearch}
+              />
+              {showSuggestion()}
+            </div>
+          </div>
         </div>
-    )
-}
-export default Wallpaper;
-
-
+      );
+    }
+    
+    export default Wallpaper;
