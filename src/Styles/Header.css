@@ -1,0 +1,60 @@
+.Header {
+    position: relative;
+    background: red;
+    height: 50px;
+}
+
+.Hlogo {
+    position: absolute;
+    left: 50px;
+    color: red;
+    background: white;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 23px;
+   font-weight: bold;
+   padding-top: 7px;
+    height: 50px;
+    width: 50px;
+    
+    
+    
+        /* margin: 2px; */
+}
+
+/* .buttons {
+    display: flex;
+    justify-content: end;
+} */
+
+.mlogin{
+position:absolute;
+right:200px;
+top:6px;
+}
+
+.acc{
+    position: absolute;
+    right:100px;
+    top:6px;
+}
+
+
+ /* .Hlogin {
+    position: absolute;
+    right: 200px;
+    top: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.HAcc {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 2px;
+} */

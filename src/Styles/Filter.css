@@ -1,0 +1,385 @@
+body{
+    margin: auto;
+}
+.Flogopanel {
+    background-color: red;
+    height: 50px;
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+/* .Flogo {
+    margin-left: 85px;
+    padding: 1px 7px;
+    display: inline;
+    color: red;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.Flogin {
+    position: absolute;
+    color: white;
+    text-decoration: none;
+    top: 5px;
+    right: 320px;
+    size: 20px;
+    padding: 10px;
+}
+
+.Facc {
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    word-spacing: normal;
+    border: 1px solid white;
+    border-radius: 3px;
+    right: 170px;
+    top: 3px;
+    padding: 10px;
+}
+
+.Flogin:hover {
+    color: greenyellow;
+}
+
+.Facc:hover {
+    color: yellow;
+} */
+
+.Fsearch {
+    position: absolute;
+    left: 550px;
+}
+
+.Fsearchplaz {
+    color: #192f60;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 33px;
+    margin-left: 65px;
+    max-height: 1000px;
+}
+
+.Ffilterpanel {
+    height: 690px;
+    width: 260px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0.16);
+    background-color: white;
+    padding: 15px;
+    position: absolute;
+    margin-left: 85px;
+    top: 140px;
+}
+
+.Fheading {
+    color: black;
+    font-weight: bold;
+}
+
+.Foption {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #7b8291;
+    margin: 10px;
+}
+
+.Ffilterpanel:hover {
+    background-color: whitesmoke;
+}
+
+.Fimage {
+   
+    border-radius: 20px;
+    margin: 10px;
+    margin-left: 30px;
+}
+
+.FlocationSelection {
+    width: 150px;
+}
+
+.Fh2 {
+    position: absolute;
+    left: 300px;
+    top: 10px;
+}
+
+.Fh5 {
+    position: absolute;
+    left: 300px;
+    top: 50px;
+}
+
+.Fp {
+    position: absolute;
+    left: 300px;
+    top: 80px;
+}
+
+.Fmenu {
+    position:relative;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    /* border: 2px dotted blue; */
+    row-gap: 50px;
+    width: 700px;
+    left: 430px;
+    top: 0px;
+}
+
+.Fmenu1 {
+    border: 1px solid black;
+    position: relative;
+    height: 250px;
+}
+
+.Fmrp {
+    /* margin-top: 30px; */
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.Fmenu1:hover {
+    background-color: whitesmoke;
+}
+
+.nosearch{
+    font-size: 40px;
+    font-family:cursive;
+text-align: center;
+}
+
+.Fbutton {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    gap: 10px;
+    left: 50%;
+    top: 1000px;
+    
+}
+
+.Fpagination {
+    font-size: medium;
+    padding: 10px;
+    /* margin-left:50px; */
+}
+
+.Fhide {
+    border: 1px soild black;
+}
+
+
+
+@media all and (min-width:576px) and (max-width:992px) {
+    .Flogin {
+        position: absolute;
+        color: white;
+        text-decoration: none;
+        top: 5px;
+        right: 250px;
+        size: 20px;
+        padding: 10px;
+    }
+
+    .Facc {
+        position: absolute;
+        color: white;
+        font-size: 15px;
+        text-decoration: none;
+        word-spacing: normal;
+        border: 1px solid white;
+        border-radius: 3px;
+        left: 80%;
+        top: 5px;
+        padding: 10px;
+    }
+
+    .Ffilterpanel>.hide {
+        display: none;
+    }
+
+    .Ffilterpanel {
+        height: 150px;
+        width: 89%;
+        margin-left: 20px;
+        align-content: center;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0.16);
+        background-color: white;
+        font-size: 20px;
+    }
+
+    .Fsearchplaz {
+        font-size: 33px;
+        margin-left: 0px;
+    }
+
+    .Fhide {
+        display: none;
+        /* height:250px; */
+    }
+
+    .Fmenu {
+        position: absolute;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        /* border: 2px dotted blue; */
+        row-gap: 50px;
+        width: 93%;
+        left: 8px;
+        top: 350px;
+        padding: 10px;
+    }
+
+    .Fmenu1 {
+        border: 1px solid black;
+        position: relative;
+        height: 250px;
+    }
+
+    .Fmrp {
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    .Fbutton {
+        display: flex;
+        position: absolute;
+        flex-direction: row;
+        gap: 10px;
+        top: 950px;
+        left: 30%;
+    }
+}
+
+@media all and (min-width:0) and (max-width:576px) {
+    .Flogo {
+        position: absolute;
+        color: red;
+        font-size: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        /* left: 7px; */
+        margin-left: 10px;
+        top: 7px;
+        text-align: left;
+    }
+
+    .Facc {
+        position: absolute;
+        color: white;
+        font-size: 12px;
+        text-decoration: none;
+        word-spacing: normal;
+        border: 1px solid white;
+        border-radius: 1px;
+        right:45px;
+        top: 10px;
+        padding: 5px;
+    }
+
+    .Flogin {
+        position: absolute;
+        color: white;
+        text-decoration: none;
+        top: 11px;
+        right: 150px;
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .Fhide {
+        display: none;
+        /* height:250px; */
+    }
+
+    .Ffilterpanel {
+        height: 130px;
+        width: 350px;
+        margin-left: 15px;
+        align-content: center;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0.16);
+        background-color: white;
+        font-size: 10px;
+        padding: 15px;
+    }
+
+    .Fsearchplaz {
+        font-size: 20px;
+        margin-left: 0px;
+    }
+
+    .Fmenu {
+        position: absolute;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        /* border: 2px dotted blue; */
+        row-gap: 50px;
+        width: 87%;
+        left: 5px;
+        top: 300px;
+        padding: 10px;
+    }
+
+
+    .Fmenu1 {
+        border: 1px solid black;
+        position: relative;
+        height: 250px;
+    }
+
+    .Fimage {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        margin: 15px;
+    }
+
+    .Fh2 {
+        position: absolute;
+        left: 112px;
+        top: 5px;
+        font-size: 16px;
+    }
+
+    .Fh5 {
+        position: absolute;
+        left: 112px;
+        top: 30px;
+        font-size: 13px;
+    }
+
+    .Fp {
+        position: absolute;
+        left: 112px;
+        top: 60px;
+        font-size: 10px;
+    }
+
+    .Fmrp {
+        font-size: 12px;
+        margin-bottom: 10px;
+        /* margin-top: 30px;
+        margin-left: 10px; */
+    }
+
+    .Fbutton {
+        display: flex;
+        position: absolute;
+        flex-direction: row;
+        gap: 8px;
+        top: 950px;
+        left: 14%;
+    }
+}

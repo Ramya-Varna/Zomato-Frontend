@@ -1,0 +1,38 @@
+.Dimage{
+    width:1300px;
+    height: 500px;
+}
+
+.onlineorder-btn{
+    position:absolute;
+   right:100px;
+    background-color: lightyellow;
+    border:2px solid yellow;
+}
+
+.tabs1:hover{
+    background-color: rgb(101, 101, 196);
+    color:white;
+    display: inline-block;
+    width:200px;
+    height:20px;
+    border:2px solid grey;
+    left:5px;
+}
+
+.tabs2:hover{
+    background-color: rgb(101, 101, 196);
+    color:white;
+    display: inline-block;
+    width:200px;
+    height:20px;
+    border:2px solid grey;
+    left:5px;
+}
+
+.Dtitle{
+    font-weight: bold;
+    /* position: absolute;
+    top:200px; */
+
+}
