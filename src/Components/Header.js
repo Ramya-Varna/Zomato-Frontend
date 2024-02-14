@@ -104,7 +104,7 @@ const Header = () => {
     
     const Login = () => {
         axios
-          .post("http://localhost:1900/login", { email: email, password: password })
+          .post("https://outstanding-fish-pleat.cyclic.app/login", { email: email, password: password })
           .then((response) => {
             setLoginInfo(response.data.user);
             console.log(loginInfo, "successfully loggedin");
