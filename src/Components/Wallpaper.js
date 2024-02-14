@@ -96,7 +96,7 @@ const Wallpaper = () => {
                             {/* {restaurants.map((e, i) => {
                                 return <option key={i} value={e.location_id}>{`${e.city}-${e.locality}`}</option>
                             })} */}
-                            {location.map((e) => {
+                            {restaurants.map((e) => {
                             return (
                                
                             <option key={e._id} value={e.location_id}>{`${e.city} - ${e.name}`}</option>
