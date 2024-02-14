@@ -74,7 +74,8 @@ const Wallpaper = () => {
         return (
             <ul className="unorder justify-content-center ">
                 {
-                    suggestions.map((e, i) => (<li className="list border rounded-2 p-3 fw-normal border border-3 text-center text-light bg-primary text-white justify-content-space-around " onClick={() => filteredsuggest(e)} key={i} >{`${e.name}-${e.locality},${e.city}`}</li>)
+                    suggestions.map((e, i) => (<li className="list border rounded-2 p-3 fw-normal border border-3 text-center text-light bg-primary text-white justify-content-space-around " 
+                                    onClick={() => filteredsuggest(e)} key={e._id} >{`${e.name}-${e.locality},${e.city}`}</li>)
 
                     )}
             </ul>
