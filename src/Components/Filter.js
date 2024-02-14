@@ -23,7 +23,7 @@
 //     console.log(location_id)
 
 //     const fetchLocation = () => {
-//         axios.get("http://localhost:1900/getLocation")
+//         axios.get("https://outstanding-fish-pleat.cyclic.app/getLocation")
 //             .then((res) => setRestaurants(res.data.Data),
 //                 console.log(restaurants)
 //             )
@@ -44,7 +44,7 @@
 //             hcost: hcost
 //         }
 
-//         axios.post("http://localhost:1900/filter", filteredObj)
+//         axios.post("https://outstanding-fish-pleat.cyclic.app/filter", filteredObj)
 //             .then(res => setLocationData(res.data))
 //             .catch(err => err);
 
@@ -60,7 +60,7 @@
 //             hcost: hcost
 //         }
 
-//         axios.post("http://localhost:1900/filter", filteredObj)
+//         axios.post("https://outstanding-fish-pleat.cyclic.app/filter", filteredObj)
 //             .then(res => setLocationData(res.data))
 //             .catch(err => err)
 //     }
