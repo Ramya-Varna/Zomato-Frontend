@@ -15,7 +15,7 @@ const Quicksearch = () => {
 
   useEffect(() => {
 
-    axios.get("http://127.0.0.1:1900/getMealType")
+    axios.get("https://outstanding-fish-pleat.cyclic.app/getMealType")
       .then((response) =>
         setMealType(response.data.Data),
       )
