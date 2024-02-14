@@ -14,14 +14,14 @@ const Wallpaper = () => {
     let [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:1900/getLocation")
+        axios.get("https://outstanding-fish-pleat.cyclic.app/getLocation")
             .then((res) => {
                 setRestaurants(res.data.Data);
                 console.log(res.data.Data);
             })
             .catch((err) => console.log(err));
     
-        axios.get("http://localhost:1900/getRestaurantData")
+        axios.get("https://outstanding-fish-pleat.cyclic.app/getRestaurantData")
             .then((response) => {
                 setRestaurants(response.data.Data);
                 //console.log(restaurants)
@@ -35,7 +35,7 @@ const Wallpaper = () => {
     
     const handleLocation = (event) => {
         let locationid = event.target.value;
-        axios.get(`http://localhost:1900/getRestaurantBylocation_id/${locationid}`)
+        axios.get(`https://outstanding-fish-pleat.cyclic.app/getRestaurantBylocation_id/${locationid}`)
             .then(response => {
                 setLocation(response.data);
                 console.log(location);
