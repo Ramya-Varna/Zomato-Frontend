@@ -50,13 +50,13 @@ const Details = () => {
         console.log(parseId)
 
 
-    axios.get(`http://localhost:1900/getRestaurantById/${parseId}`)
+    axios.get(`https://outstanding-fish-pleat.cyclic.app/getRestaurantById/${parseId}`)
            .then((res) =>{
              setList(res.data)
              const name=res.data.name  
              console.log(list) 
         
- axios.get(`http://localhost:1900/getMenuItemByname/${name}`)
+ axios.get(`https://outstanding-fish-pleat.cyclic.app/getMenuItemByname/${name}`)
              .then((res)=>
              setMenu(Array(res.data)),
               console.log(menu)
